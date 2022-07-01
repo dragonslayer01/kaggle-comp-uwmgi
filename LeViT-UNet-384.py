@@ -499,7 +499,8 @@ class LeViT_UNet_384(torch.nn.Module):
         n = 384 ## cnn num channel
         activation = torch.nn.Hardswish
         self.cnn_b1 = torch.nn.Sequential(
-            Conv2d_BN(1, n // 8, 3, 2, 1, resolution=img_size), activation())
+            #Conv2d_BN(1, n // 8, 3, 2, 1, resolution=img_size), activation()) original line
+            Conv2d_BN(3, n // 8, 3, 2, 1, resolution=img_size), activation())
         self.cnn_b2 = torch.nn.Sequential(
             Conv2d_BN(n // 8, n // 4, 3, 2, 1, resolution=img_size // 2), activation())
         self.cnn_b3 = torch.nn.Sequential(
