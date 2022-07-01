@@ -140,6 +140,7 @@ class Embeddings(nn.Module):
         x = self.patch_embeddings(x)
         x = x.flatten(2)
         x = x.transpose(-1, -2)
+        print(x.shape, 'X shape')
         embeddings = x + self.position_embeddings
         embeddings = self.dropout(embeddings)
         return embeddings
